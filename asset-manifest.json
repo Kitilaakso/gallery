@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/gallery/static/css/main.9f589978.chunk.css",
+    "main.js": "/gallery/static/js/main.12fc977f.chunk.js",
+    "main.js.map": "/gallery/static/js/main.12fc977f.chunk.js.map",
+    "runtime-main.js": "/gallery/static/js/runtime-main.7b555d1b.js",
+    "runtime-main.js.map": "/gallery/static/js/runtime-main.7b555d1b.js.map",
+    "static/css/2.6d7c7915.chunk.css": "/gallery/static/css/2.6d7c7915.chunk.css",
+    "static/js/2.684b2a23.chunk.js": "/gallery/static/js/2.684b2a23.chunk.js",
+    "static/js/2.684b2a23.chunk.js.map": "/gallery/static/js/2.684b2a23.chunk.js.map",
+    "static/js/3.e3a26cbc.chunk.js": "/gallery/static/js/3.e3a26cbc.chunk.js",
+    "static/js/3.e3a26cbc.chunk.js.map": "/gallery/static/js/3.e3a26cbc.chunk.js.map",
+    "index.html": "/gallery/index.html",
+    "static/css/2.6d7c7915.chunk.css.map": "/gallery/static/css/2.6d7c7915.chunk.css.map",
+    "static/css/main.9f589978.chunk.css.map": "/gallery/static/css/main.9f589978.chunk.css.map",
+    "static/js/2.684b2a23.chunk.js.LICENSE.txt": "/gallery/static/js/2.684b2a23.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/gallery/static/media/StickNoBills-VariableFont_wght.18764ebd.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7b555d1b.js",
+    "static/css/2.6d7c7915.chunk.css",
+    "static/js/2.684b2a23.chunk.js",
+    "static/css/main.9f589978.chunk.css",
+    "static/js/main.12fc977f.chunk.js"
+  ]
+}
