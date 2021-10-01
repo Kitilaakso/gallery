@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider, connect } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import './index.css';
 import Card from './components/Card';
 import App from './containers/App.js'
 import CardList from './components/Cardlist.js'
 import reportWebVitals from './reportWebVitals';
 import Tachyons from 'tachyons';
+import thunkMiddleware from 'redux-thunk';
 import { robots } from './robots';
 import './fonts/Stick_No_Bills/StickNoBills-VariableFont_wght.ttf';
-import { searchRobots } from './reducers';
+import { searchRobots, requestRobots } from './reducers';
 import { createLogger } from 'redux-logger';
 
 const logger = createLogger();
-const store = createStore(searchRobots, applyMiddleware(logger))
+/**async rootReducer */
+const rootReducer = combineReducers({ searchRobots, requestRobots })
+/**async rootReducer */
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger))
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

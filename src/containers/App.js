@@ -10,30 +10,38 @@ import Scroll from '../components/Scroll';
 
 import './App.css';
 //import ErrorBoundry from '../components/ErrorBoundry';
-import { setSearchfield } from '../actions.js'
+import { setSearchfield, requestRobots } from '../actions.js'
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
   return {
-    searchField: state.searchField
+    /* redux
+    searchField: state.searchField*/
+    searchField: state.searchRobots.searchField,
+    robots: state.requestRobots.robots,
+    isPending: state.requestRobots.isPending,
+    error: state.requestRobots.error
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSearchChange: (event) => dispatch(setSearchfield(event.target.value))
+    onSearchChange: (event) => dispatch(setSearchfield(event.target.value)),
+    onRequestRobots: () => dispatch(requestRobots()) /*requestRobots(dispatch)*/
   }
 }
 /* LUOKKA*/
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      robots: []//,
-      //reduxissa pois  searchfield: ''
-    }
-  }
+  /**reduxissa, asyncissa pois
+   *   constructor() {
+     super()
+     this.state = {
+       robots: []//,
+       //reduxissa pois  searchfield: ''
+     }
+   }
+   */
   /* jos halutaan käyttää functiota componentDidMountin sijaan
   
   function App() {
@@ -42,9 +50,12 @@ class App extends Component {
     const [count, setCount] = useState(0)*/
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(users => { this.setState({ robots: users }) });
+    /* reduxissa tämä, async pois
+      fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(users => { this.setState({ robots: users }) });
+        */
+    this.props.onRequestRobots();
   }
 
   /*KUN käytetään functiota ja count mukana
@@ -65,15 +76,16 @@ class App extends Component {
   render() {
     /*classissa
     const { robots, searchfield } = this.state;*/
-    //reduxin lailla alla
-    const { robots } = this.state;
-    const { searchField, onSearchChange } = this.props;
+    /*reduxin lailla alla
+    const { robots } = this.state;*/
+    const { searchField, onSearchChange, robots, isPending } = this.props;
     //functiossa const filteredRobots = robots.filter(robot => {
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     })
     //funtiossa  <SearchBox searchChange={this.onSearchChange} />
-    return !robots.length ?
+    //redux return !robots.length ?
+    return isPending ?
       <h1>Loading</h1> :
       (
         <div className='tc'>
