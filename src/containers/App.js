@@ -6,6 +6,7 @@ import SearchBox from '../components/SearchBox';
 //import { robots } from '../robots';
 //import { render } from 'react-dom';
 import Scroll from '../components/Scroll';
+import Header from '../components/Header';
 //import h1 from './fonts/StickNoBills/StickNoBills-VariableFont_wght.ttf';
 
 import './App.css';
@@ -89,7 +90,7 @@ class App extends Component {
       <h1>Loading</h1> :
       (
         <div className='tc'>
-          <h1 className='f1'>RoboFriends</h1>
+          <Header />
           <SearchBox searchChange={onSearchChange} />
           <Scroll>
 

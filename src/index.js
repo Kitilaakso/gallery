@@ -13,12 +13,15 @@ import { robots } from './robots';
 import './fonts/Stick_No_Bills/StickNoBills-VariableFont_wght.ttf';
 import { searchRobots, requestRobots } from './reducers';
 import { createLogger } from 'redux-logger';
+//import * as serviceWorker from './serviceWorker';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const logger = createLogger();
 /**async rootReducer */
 const rootReducer = combineReducers({ searchRobots, requestRobots })
 /**async rootReducer */
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger))
+//const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger))
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
 
 ReactDOM.render(
   <Provider store={store}>
@@ -32,6 +35,9 @@ ReactDOM.render(
    </div>,*/
   document.getElementById('root')
 );
+//registerServiceWorker();
+//serviceWorker.register();
+serviceWorkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
